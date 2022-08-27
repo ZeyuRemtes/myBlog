@@ -86,6 +86,8 @@ public class BlogController {
         //给blog中的List<Tag>赋值
         blog.setTags(tagService.getTagByString(blog.getTagIds()));
 
+        blog.setFlag(typeService.getType(blog.getType().getId()).getName());
+
         if (blog.getId() == null) {   //id为空，则为新增
             blogService.saveBlog(blog);
         } else {
